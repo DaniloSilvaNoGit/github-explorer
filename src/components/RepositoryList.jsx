@@ -1,25 +1,29 @@
+import { 
+    RepositoryItem 
+} from "./RepositoryItem"
 
-import { RepositoryItem } from "./RepositoryItem"
+import { 
+    useEffect,
+    useState 
+} from "react"
+
+import '../styles/repositories.scss'
 
 export function RepositoryList() {
+    const [repositories, setRepositories] = useState([]);
 
-    const repositoryInfos = {
-        name: "GitHub Explorer",
-        description: "Projeto criado para estudar react com auxilio do curso Ignite.",
-        link: "https://github.com/unform/unform"
-    }
+    useEffect(() => {
+        fetch('https://api.github.com/users/DaniloSilvaNoGit/repos')
+            .then(response => response.json())
+            .then(data => setRepositories(data))
+    }, [repositories])
 
     return(
         <section className="repositoryList">
             <h1>Lista de repositórios</h1>
 
             <ul>
-                
-                <RepositoryItem repository={repositoryInfos} />
-                <RepositoryItem repository={repositoryInfos} />
-                <RepositoryItem repository={repositoryInfos} />
-                <RepositoryItem repository={repositoryInfos} />
-                
+                {repositories.map(repository => <RepositoryItem key={repository.name} repository={repository} />)}
             </ul>
 
         </section>
