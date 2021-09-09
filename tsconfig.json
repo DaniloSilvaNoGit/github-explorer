@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {                          
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], //Permite que tipagens com elementos da dom sejam criadas                                      
+    "jsx": "react-jsx", // Diz que JSX sera utilizado na aolicação
+    "resolveJsonModule": true, //Permite utilziar arquivos JSON
+    "isolatedModules": true,
+    "moduleResolution": "node",                     
+    "allowJs": true,                                 
+    "noEmit": true,                            
+    "allowSyntheticDefaultImports": true,           
+    "esModuleInterop": true,                             
+    "forceConsistentCasingInFileNames": true,          
+    "strict": true, //Tratemtno de erros                      
+    "skipLibCheck": true                                
+  },
+  "include": ["src"] //Diz que EXCLUSIVAMENTE TODO código está na src
+}
